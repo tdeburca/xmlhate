@@ -4,9 +4,10 @@ import sys
 pp = pprint.PrettyPrinter(depth=4)
 import xml.etree.ElementTree as ET
 
+TITLE = "{http://www.imsglobal.org/xsd/imsccv1p2/imscp_v1p1}title"
 
-# tree = ET.parse("manifest.xml")
-tree = ET.parse("test2.xml")
+tree = ET.parse("manifest.xml")
+# tree = ET.parse("test2.xml")
 root = tree.getroot()
 
 # returns just the directory structure
@@ -18,7 +19,6 @@ root_dir = org
 # print(org.findall("./{*}item"))
 
 def show_tree(elementtree, depth=0):
-  TITLE = "{http://www.imsglobal.org/xsd/imsccv1p2/imscp_v1p1}title"
   for thing in elementtree:
     spacer = '|'
     if thing.find(TITLE) is not None:
@@ -36,7 +36,4 @@ def show_tree(elementtree, depth=0):
     show_tree(thing, depth)
 
 
-# print(org.find("{http://www.imsglobal.org/xsd/imsccv1p2/imscp_v1p1}title").text)
 show_tree(org)
-
-# print(os.listdir('ccres0000005'))
