@@ -1,7 +1,3 @@
-import os
-import pprint
-import sys
-pp = pprint.PrettyPrinter(depth=4)
 import xml.etree.ElementTree as ET
 
 TITLE = "{http://www.imsglobal.org/xsd/imsccv1p2/imscp_v1p1}title"
@@ -16,7 +12,6 @@ org = org[0][0]
 # root_dir == logical root directory we care about
 root_dir = org
 
-# print(org.findall("./{*}item"))
 
 def show_tree(elementtree, depth=0):
   for thing in elementtree:
@@ -34,6 +29,5 @@ def show_tree(elementtree, depth=0):
     else:
       depth += 1
     show_tree(thing, depth)
-
 
 show_tree(org)
